@@ -20,8 +20,16 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
+gem 'bcrypt', '~> 3.1.7'
+# Use dotenv-rails to store enviromental var. 
+  gem 'dotenv-rails'
+# Use omniauth for login with github/facebook/google
+  gem 'omniauth'
+  gem 'omniauth-github'
+  gem 'omniauth-twitter'
+  gem 'omniauth-facebook'
+# Using gem 'omniauth-rails_csrf_protection' for inbuilt CSRF protection.
+  gem 'omniauth-rails_csrf_protection', '~> 0.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -29,11 +37,18 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+# Using Pry for debugging
+  gem 'pry'
+  # Testing a combo-gem pry-byebug
+  gem 'pry-byebug'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
+  # Using better_errors for cleaner view of errors.
+  gem "better_errors"
+  gem "binding_of_caller"
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
