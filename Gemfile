@@ -26,7 +26,6 @@ gem 'bcrypt', '~> 3.1.7'
 # Use omniauth for login with github/facebook/google
   gem 'omniauth'
   gem 'omniauth-github'
-  gem 'omniauth-twitter'
   gem 'omniauth-facebook'
 # Using gem 'omniauth-rails_csrf_protection' for inbuilt CSRF protection.
   gem 'omniauth-rails_csrf_protection', '~> 0.1'
