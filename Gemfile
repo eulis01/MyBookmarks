@@ -26,7 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use omniauth for login with github/facebook/google
   gem 'omniauth'
   gem 'omniauth-github'
-  gem 'omniauth-facebook'
+  # gem 'omniauth-facebook'
 # Using gem 'omniauth-rails_csrf_protection' for inbuilt CSRF protection.
   gem 'omniauth-rails_csrf_protection', '~> 0.1'
 # Use Active Storage variant
@@ -39,7 +39,7 @@ group :development, :test do
 # Using Pry for debugging
   gem 'pry'
   # Testing a combo-gem pry-byebug
-  gem 'pry-byebug'
+  # gem 'pry-byebug'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
