@@ -10,4 +10,12 @@
     - name 
     - url
 
-  #### User 
+  ### User 
+    - has_many :bookmarks, dependent: :destroy
+    - has_many :tags, dependent: :destroy
+    - has_many :tagged_bookmarks, through: :tags
+    - has_many :folders, through: :bookmarks
+    - uid (for omniauth login)
+    - username
+    - email
+    - password_digest - <has_secure_password>
