@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # Use Bcrypt for encryption
+  # Using Bcrypt gem for encryption
   has_secure_password 
   has_many :bookmarks
   has_many :folders, through: :bookmarks 
