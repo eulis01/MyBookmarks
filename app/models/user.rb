@@ -12,6 +12,4 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :username, :email, uniqueness: true
   end
-
-  
 end
