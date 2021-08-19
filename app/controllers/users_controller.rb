@@ -11,13 +11,13 @@ class UsersController < ApplicationController
       flash[:success] = "Thanks for signing up!"
       redirect_to @user
     else
-      render 'new'
+      render :new
     end
   end
 
   def show
     redirect_if_not_logged_in
-    @user = User.includes(bookmarks: :folders).find_by_id(params[:id])
+    @user = User.includes(bookmarks: :tags).find_by_id(params[:id])
     redirect_to root_path if @user.nil?
   end
 
