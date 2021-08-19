@@ -15,12 +15,19 @@ class SessionsController < ApplicationController
     else
       flash[:error] = "Invalid username or password"
       redirect_to "/login"
+    end
   end
   
   def github
-    @user = User.find_or_create_from_auth_hash(auth_hash)
-    self.current_user = @user
-    redirect_to root_path
+    @user = User.find_or_create_by(email:auth_hash[:info][:email]) do |user|
+      user.username = auth_hash[:info][:username]
+      user.password = SecureRandom.hex(32)
+    end
+    if @user.save
+      session[:user_id] = user.id
+    redirect_to user_path(@user)
+    else
+      redirect_if_not_logged_in
   end
 
   def failure
@@ -32,6 +39,9 @@ class SessionsController < ApplicationController
         session[:user_id] = nil
     redirect_to root_path
   end
-  end
 
+  private
+  def auth
+    request.env['omniauth.auth']
+  end
 end
