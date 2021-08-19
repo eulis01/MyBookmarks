@@ -15,4 +15,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    redirect_if_not_logged_in
+    @user = User.includes(bookmarks: :folders).find_by_id(params[:id])
+    redirect_to '/' if @user.nil?
+  end
+
+  private 
+
+  def user_params
+        params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  end
+
 end
