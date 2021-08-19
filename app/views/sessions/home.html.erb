@@ -1,4 +1,5 @@
 <h1> Welcome To Bookmarks </h1>
 
-<%= link_to "👋 Sign Up Here 👋", signup_path %>
-<%= link_to " Log In Here", '/login' %>
+<%= button_to "👋 Sign Up Here 👋", signup_path %>
+<%= button_to "Log In Here", '/login' %>
+<%= button_to "Sign Up With GitHub", '/auth/github', method: :post %>
