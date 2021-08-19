@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 # OAuth2 OmniAuth callbacks 
-  post '/auth/:provider/callback', to: 'sessions#create'
+  post '/auth/:provider/callback', to: 'sessions#github'
   get '/auth/failure', to: 'sessions#failure'
   
 # Root route
