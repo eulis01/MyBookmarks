@@ -2,8 +2,12 @@ Rails.application.routes.draw do
 # the priority is based upon order of creation: first created -> highest priority.
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  # Root route
-  root 'sessions/home'
+# OAuth2 OmniAuth callbacks 
+  post '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: 'sessions#failure'
+  
+# Root route
+  root 'sessions#home'
 
 # custom routes here above the default resourceful routes
   get '/signup', to: 'users#new'
