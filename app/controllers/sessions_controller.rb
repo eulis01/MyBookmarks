@@ -1,10 +1,8 @@
 class SessionsController < ApplicationController
   def home 
-
   end
 
   def new
-
   end
 
   def create
@@ -28,6 +26,7 @@ class SessionsController < ApplicationController
     redirect_to user_path(@user)
     else
       redirect_if_not_logged_in
+    end
   end
 
   def failure
