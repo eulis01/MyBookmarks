@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def show
     redirect_if_not_logged_in
     @user = User.includes(bookmarks: :folders).find_by_id(params[:id])
-    redirect_to '/' if @user.nil?
+    redirect_to root_path if @user.nil?
   end
 
   private 
