@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   protect_from_forgery with: :exception 
   # For APIs, you may want to use :null_session instead.
-  #allow the view to use helper methods
+  # Give access to helper methods in the view
   helper_method :redirect_if_not_logged_in, :current_user, :logged_in?
 
   def redirect_if_not_logged_in
