@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
   end
   
   def github
+    auth_hash = request.env['omniauth.auth']
     @user = User.find_or_create_by(email:auth_hash[:info][:email]) do |user|
       user.username = auth_hash[:info][:username]
       user.password = SecureRandom.hex(32)
