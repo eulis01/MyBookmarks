@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Use dotenv-rails to store enviromental var. 
-  gem 'dotenv-rails'
+  #gem 'dotenv-rails'
 # Use omniauth for login with github/facebook/google
   gem 'omniauth'
   gem 'omniauth-github'
