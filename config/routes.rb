@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 # OAuth2 OmniAuth callbacks 
   post '/auth/:provider/callback', to: 'sessions#github'
-  get '/auth/failure', to: 'sessions#failure'
+  #get '/auth/failure', to: 'sessions#failure'
   
 # Root route
   root 'sessions#home'
