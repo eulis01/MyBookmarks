@@ -9,8 +9,9 @@ class Bookmark < ApplicationRecord
 
   with_options presence: true do 
     validates :name
-    # validates that url is valid with http:// or https:// using the Rails built in url validator.
-    validates :url, url: true, uniqueness: true
+    # validates that url is valid with http:// or https:// using regex.
+    validates :url, format: { with: /\A#{URI::regexp(%w(http https))}\z/ }, uniqueness: true
+    validates :user_id
   end
 
 
