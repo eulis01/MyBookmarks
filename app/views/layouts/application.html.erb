@@ -11,23 +11,26 @@
   </head>
 
   <body>
-  <div>
-  <% if logged_in? %>
-  <%= link_to 'Add A Bookmark', new_bookmark_path %>
-  <%= link_to 'Add A Tag', new_tag_path %>
 
-    <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure You Want to Logout?' } %>
-  <% else %>
-    <%= link_to 'Login', login_path %>
-    <%= link_to 'Sign Up', signup_path%>
-  <% end %>
-
-  <div>
-      <% if flash[:message] %>
-          <%= flash[:message]%>
+    <div>
+      <% if logged_in? %>
+        <%= link_to 'Add A Bookmark', new_bookmark_path %>
+        <%= link_to 'Add A Tag', new_tag_path %>
+        <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure You Want to Logout?' } %>
+      <% else %>
+        <%= link_to 'Login', login_path %>
+        <%= link_to 'Sign Up', signup_path%>
       <% end %>
-      <%= @error%>
-  </div>
-    <%= yield %>
+    </div>
+
+    <div>
+        <% if flash[:message] %>
+          <%= flash[:message]%>
+        <% end %>
+        <%= @error%>
+    </div>
+
+      <%= yield %>
+      
   </body>
 </html>
