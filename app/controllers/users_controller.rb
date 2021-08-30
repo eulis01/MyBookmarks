@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    set_non_auth_uid
+    if @user.save && @user.uid.present?
       session[:user_id] = @user.id
       flash[:success] = "Thanks for signing up!"
       redirect_to @user
