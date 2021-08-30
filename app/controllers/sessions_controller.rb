@@ -2,6 +2,12 @@ class SessionsController < ApplicationController
   def home 
   end
 
+  def new
+    if session[:user_id]
+      redirect_to user_path(current_user)
+    end
+  end
+
   def create
     if auth
       @user = User.find_or_create_by(email:auth[:info][:email]) do |user|
