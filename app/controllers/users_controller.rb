@@ -28,4 +28,7 @@ class UsersController < ApplicationController
         params.require(:user).permit(:username, :email, :uid, :password, :password_confirmation)
   end
 
+  def set_non_auth_uid
+    @user.uid = SecureRandom.hex(10)
+  end
 end
