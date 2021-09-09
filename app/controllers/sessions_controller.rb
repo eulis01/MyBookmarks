@@ -9,36 +9,26 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if auth
-      @user = User.find_or_create_by(email:auth[:info][:email]) do |user|
-        user.username = auth[:info][:nickname]
-        user.email = auth[:info][:email]
-        user.uid = auth[:uid]
-        user.password = SecureRandom.hex(16)
-      end
-      if @user.save
-        session[:user_id] = @user.id
-        flash[:success] = "Welcome,#{@user.username}"
-        redirect_to user_path(@user)
-      else
-        flash[:error] = "!!!There was an error creating a User!!!"
-        redirect_if_not_logged_in
-      end
+    if params[:provider] == 'github'
+      @user = User.create_by_github_omniauth(auth)
+      session[:user_id] = @user.id
+      flash[:success] = "Welcome,#{@user.username}"
+      redirect_to user_path(@user)
     else
       @user = User.find_by(email: params[:email])
-      if @user && @user.authenticate(params[:password])
+      if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         flash[:success] = "Welcome,#{@user.username}"
         redirect_to user_path(@user)
       else
-        flash[:error] = "Invalid username or password"
+        flash[:error] = "Invalid Login Informatio. Please try again."
         redirect_to login_path
       end
     end
   end
 
   def destroy
-    session[:user_id] = nil
+    session.delete(:user_id)
     redirect_to root_path
   end
   
