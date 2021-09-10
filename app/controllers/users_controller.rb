@@ -16,16 +16,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    if !logged_in?
-      redirect_to '/'
-    elsif
-      @user = User.find_by(id: params[:id])
-      @bookmarks = @user.bookmarks
-      @user = User.includes(bookmarks: :tags).find_by_id(params[:id])
-    else
-      @user = nil
-      redirect_to '/'
-    end
+    redirect_if_not_logged_in
+    @user = User.find_by_id(params[:id])
+    redirect_to root_path if !@user
+    #@bookmarks = @user.bookmarks
+    #@user = User.includes(bookmarks: :tags).find_by_id(params[:id])
   end
 
   private 
