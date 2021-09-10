@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save && @user.uid.present?
       session[:user_id] = @user.id
       flash[:success] = "Thanks for signing up!"
-      redirect_to @user
+      redirect_to user_path(@user)
     else
       render :new
     end
