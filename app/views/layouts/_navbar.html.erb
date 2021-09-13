@@ -4,6 +4,7 @@
         <%= link_to 'Add A Tag', new_tag_path %>
         <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure You Want to Logout?' } %>
       <% else %>
+        <%= link_to 'Home', root_path %>
         <%= link_to 'Login', login_path %>
         <%= link_to 'Sign Up', signup_path%>
       <% end %>
