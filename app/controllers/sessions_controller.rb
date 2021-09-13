@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
         flash[:success] = "Welcome,#{@user.username}"
         redirect_to user_path(@user)
       else
-        flash[:error] = "Invalid Login Informatio. Please try again."
+        flash[:error] = "Invalid Login Information. Please try again."
         redirect_to login_path
       end
     end
