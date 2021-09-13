@@ -13,12 +13,12 @@ class User < ApplicationRecord
     validates :username, :email, uniqueness: true
   end
 
-  def self.create_by_github_omniauth(auth)
-    self.find_or_create_by(email: auth[:info][:email]) do |user|
-      user.username = auth[:info][:nickname]
-      user.email = auth[:info][:email]
-      user.uid = auth[:uid]
-      user.password = SecureRandom.hex(16)
+  def self.find_or_create_from_github_omniauth(auth)
+    user = User.find_or_create_by(email: auth[:info][:email]) do |u|
+      u.username = auth[:info][:nickname]
+      u.email = auth[:info][:email]
+      u.uid = auth[:uid]
+      u.password = SecureRandom.hex(16)
     end
   end
 end
