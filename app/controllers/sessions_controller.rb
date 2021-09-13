@@ -2,8 +2,7 @@ class SessionsController < ApplicationController
   def home 
   end
 
-  def new
-  end
+  def new; end
 
   def create
     if params[:provider] == 'github'
