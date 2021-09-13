@@ -1,20 +1,21 @@
-
+<div class="signup-form">
 <h1>Sign Up</h1>
 
-<%= render partial: 'layouts/errors', locals: {object: @user} %>
+<%= render partial: "layouts/errors", locals: {object: @user} %>
 
-<%= form_for(@user, url:'/signup') do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <br><br>
-  <%= f.label :email %>
-  <%= f.email_field :email, required:true%>
-  <br> <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br><br>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <br><br>
-  <%= f.submit 'Submit' %>
-<% end %>
+  <%= form_with model: @user do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <br><br>
+    <%= f.label :email %>
+    <%= f.email_field :email, required:true %>
+    <br> <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br><br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <br><br>
+    <%= f.submit "Sign Up" %>
+  <% end %>
+</div>
