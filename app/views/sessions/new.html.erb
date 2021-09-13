@@ -1,10 +1,13 @@
-<h1>Login</h1>
-<%= flash[:message] if flash[:message] %>
+<div class="login-form">
+  <h1>Login</h1>
 
-<%= form_tag("/login", method: "post") do %>
-    <label>Email: </label>
-    <input type="text" id="email" name="email"><br>
-    <label>Password: </label>
-    <input type="password" id="password" name="password"><br><br>
-    <input type="submit" value="Log In">
-<% end %>
+  <%= flash[:error] %>
+
+  <%= form_with url: "/login", method: :post do |f| %>
+    <%= f.label :email %>
+    <%= f.email_field :email, required:true %> <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %> <br>
+    <%= f.submit "Login" %>
+  <% end %>
+</div>
