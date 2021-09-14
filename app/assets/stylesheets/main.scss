@@ -1,0 +1,37 @@
+// this is the main stylesheet for the application it will be compiled to application.css
+
+// navigation bar styles
+.navbar {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e7e7e7;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  text-align: center;
+}
+
+// home page styles
+.home-container {
+  text-align: center;
+
+  .h1 {
+  font-size: 2.5em;
+  font-weight: 300;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+}
+
+// form styles
+.login-form, .signup-form {
+  text-align: center;
+  
+}
+
+// error message styles
+.error-message {
+  color: #ff1900;
+  font-size: 0.8em;
+  margin-top: 0.5em;
+} 
