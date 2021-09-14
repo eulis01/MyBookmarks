@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :redirect_if_not_logged_in, except: [:new, :create]
   def new
     @user = User.new
   end
@@ -17,9 +17,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_if_not_logged_in
+    # this is the user's profile page - securityy measure to prevent users from seeing other users' profiles.
+    redirect_to root_path && session.clear unless current_user.id == params[:id].to_i
     @user = User.find_by_id(params[:id])
-    redirect_to root_path if !@user
     #@bookmarks = @user.bookmarks
     #@user = User.includes(bookmarks: :tags).find_by_id(params[:id])
   end
