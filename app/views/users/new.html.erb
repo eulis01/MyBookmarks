@@ -3,7 +3,7 @@
 
 <%= render partial: "layouts/errors", locals: {object: @user} %>
 
-  <%= form_with model: @user do |f| %>
+  <%= form_with url: "/signup", method: :post do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
     <br><br>
