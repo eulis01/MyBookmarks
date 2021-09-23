@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # this is the user's profile page - securityy measure to prevent users from seeing other users' profiles.
+    # this is the user's profile page - security measure to prevent users from seeing other users' profiles.
     redirect_to root_path && session.clear unless current_user.id == params[:id].to_i
     @user = User.find_by_id(params[:id])
     #@bookmarks = @user.bookmarks
