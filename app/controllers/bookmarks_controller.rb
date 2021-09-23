@@ -33,6 +33,10 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def edit
+    redirect_to bookmarks_path if !@bookmark || @bookmark.user != current_user
+    @bookmark.build_user if !@bookmark.user
+  end
   def update
     redirect_to bookmarks_path if !@bookmark || @bookmark.user != current_user
     if @bookmark.update(bookmark_params)
