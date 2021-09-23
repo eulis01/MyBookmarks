@@ -1,4 +1,6 @@
 class BookmarksController < ApplicationController
+  before_action :redirect_if_not_logged_in 
+  before_action :set_bookmark, except: [:index, :new, :create]
   def index
     @bookmarks = Bookmark.all
   end
