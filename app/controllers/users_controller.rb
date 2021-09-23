@@ -27,7 +27,18 @@ class UsersController < ApplicationController
   private 
 
   def user_params
-        params.require(:user).permit(:username, :email, :uid, :password, :password_confirmation)
+    # this params hash by itself is not secure enough according to the rails docs. - because it allows for mass assignment.
+    #params.require(:user).permit(:username, :email, :uid, :password, :password_confirmation)
+
+    # this way is not secure as it allows for mass assignment.
+        params.permit(:username, :email, :uid, :password, :password_confirmation)
+
+    # this is the most secure way to do it, according to the rails docs.
+      # params.require(:user).permit(:username, :email, :uid, :password, :password_confirmation).tap do |user_params|
+      #  user_params.require(:username, :email, :uid, :password, :password_confirmation)
+      # end
+
+
   end
 
   def set_non_auth_uid
