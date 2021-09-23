@@ -29,9 +29,10 @@ class BookmarksController < ApplicationController
   end
 
   def update
-    @bookmark = Bookmark.find(params[:id])
+    redirect_to bookmarks_path if !@bookmark || @bookmark.user != current_user
     if @bookmark.update(bookmark_params)
-      redirect_to @bookmark, notice: 'Bookmark was successfully updated.'
+      flash[:notice] = "Bookmark was successfully updated."
+      redirect_to @bookmark
     else
       render :edit
     end
