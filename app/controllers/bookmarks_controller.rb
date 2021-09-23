@@ -10,8 +10,11 @@ class BookmarksController < ApplicationController
   end
 
   def new
-    @bookmark = Bookmark.new
-  end
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @bookmark = @user.bookmarks.build
+    else
+      @bookmark = Bookmark.new
+    end
 
   def edit
     @bookmark = Bookmark.find(params[:id])
