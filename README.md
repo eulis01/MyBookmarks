@@ -1,12 +1,26 @@
 # Bookmarks App
 
-Welcome to My Bookmarks Application! This application is a bookmark manager where users can create an account and add bookmarks, and organize them into folders and tags. and share them with other users.
+Welcome to My Bookmarks Application! This application is a bookmark manager where users can create an account and add bookmarks the database, tags can be assigned to bookmarks and bookmarks can be filtered by tag.
+
+
 
 ## Installation
-  * clone the repository from Github
+  
+  * Clone the repository from Github
+    >* there should be an .env.example file included in the directory.
+    >* You need to create a .env file with your github app keys.
+    >* should look like this: 
+    ```
+    GITHUB_CLIENT_ID = 23efs3ecfdsf
+    GITHUB_CLIENT_SECRET = 23rfe23rf23r23r23r
+    ```
+    
+     >* Here is a [Link](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) to a guide on how to create key for an oauth application on github. by github.
+    >* Your Homepage url should be set to: http://localhost:3000/
+    >* Your Authorization callback url should be set to: http://localhost:3000/auth/github/callback
   * run the following command in the terminal:
-  ``` bundle install```
-  ```rails db:migrate```
+    ``` bundle install```
+    ```rails db:migrate```
   * To run the Server in the terminal
   ``` rails s```
   * Follow the route printeted out in the terminal or go to http://localhost:3000/ in your browser.
