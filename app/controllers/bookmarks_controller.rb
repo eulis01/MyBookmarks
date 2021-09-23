@@ -2,7 +2,12 @@ class BookmarksController < ApplicationController
   before_action :redirect_if_not_logged_in 
   before_action :set_bookmark, except: [:index, :new, :create]
   def index
-    @bookmarks = Bookmark.all
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @bookmarks = @user.bookmarks.alpha
+    else
+      @error = "This user doesn't exist" if params[:user_id]
+      @bookmarks = Bookmark.alpha.includes(:user)
+    end
   end
 
   def show
