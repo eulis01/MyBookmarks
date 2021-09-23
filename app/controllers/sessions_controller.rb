@@ -3,11 +3,11 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
+    #binding.pry
     if params[:provider] == "github"
       user = User.find_or_create_from_github_omniauth(auth)
       if user.persisted?
         session[:user_id] = user.id
-        flash[:success] = "Welcome,#{user.username}"
         redirect_to user_path(user)
       else
         flash[:error] = "There was an error while trying to authenticate you..."
@@ -17,10 +17,9 @@ class SessionsController < ApplicationController
       @user = User.find_by(email: params[:email])
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        flash[:success] = "Welcome,#{@user.username}"
         redirect_to user_path(@user)
       else
-        flash[:error] = "Invalid Login Information. Please try again."
+        flash[:message] = "Invalid Login Information. Please try again."
         redirect_to login_path
       end
     end
