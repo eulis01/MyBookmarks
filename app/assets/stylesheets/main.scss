@@ -1,19 +1,22 @@
 // this is the main stylesheet for the application it will be compiled to application.css
 
+body {
+  text-align: center;
+  background-color: #59aaaa;
+}
+
 // navigation bar styles
 .navbar {
-  background-color: #f8f8f8;
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 2px solid #706f6f;
   border-radius: 0;
   box-shadow: none;
   margin-bottom: 0;
   padding: 0;
-  text-align: center;
+  text-align: center; /* center the navbar */
 }
 
 // home page styles
 .home-container {
-  text-align: center;
 
   .h1 {
   font-size: 2.5em;
@@ -23,11 +26,6 @@
 }
 }
 
-// form styles
-.login-form, .signup-form {
-  text-align: center;
-  
-}
 
 // error message styles
 .error-message {
