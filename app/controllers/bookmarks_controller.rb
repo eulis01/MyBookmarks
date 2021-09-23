@@ -44,10 +44,9 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:name, :url)
-  end
-  
+    def set_bookmark 
   def set_bookmark 
-    @bookmark = Bookmark.find(params[:id])
-  end
+    def set_bookmark 
+      @bookmark = Bookmark.find_by(id: params[:id])
+    end
 end
