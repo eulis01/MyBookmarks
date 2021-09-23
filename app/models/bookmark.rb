@@ -3,7 +3,7 @@ class Bookmark < ApplicationRecord
   has_many :tags
   has_many :users, through: :tags
 
-   scope :alpha, -> { order(:name)}
+    scope :alpha, -> { order(:name)}
 
   with_options presence: true do 
     validates :name
