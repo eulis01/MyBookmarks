@@ -32,11 +32,12 @@ class BookmarksController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
     redirect_to bookmarks_path if !@bookmark || @bookmark.user != current_user
     @bookmark.build_user if !@bookmark.user
   end
+
   def update
     redirect_to bookmarks_path if !@bookmark || @bookmark.user != current_user
     if @bookmark.update(bookmark_params)
@@ -48,7 +49,6 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
     flash[:notice] = "Bookmark was successfully deleted."
     redirect_to bookmarks_url
