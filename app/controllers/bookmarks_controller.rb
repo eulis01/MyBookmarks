@@ -6,7 +6,7 @@ class BookmarksController < ApplicationController
   end
 
   def show
-    set_bookmark
+    redirect_to bookmarks_path if !@bookmark
   end
 
   def new
