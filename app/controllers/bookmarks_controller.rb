@@ -15,9 +15,7 @@ class BookmarksController < ApplicationController
     else
       @bookmark = Bookmark.new
     end
-
-  def edit
-    @bookmark = Bookmark.find(params[:id])
+    @bookmark.build_user
   end
 
   def create
