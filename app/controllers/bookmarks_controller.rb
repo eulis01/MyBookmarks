@@ -21,7 +21,8 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = current_user.bookmarks.build(bookmark_params)
     if @bookmark.save
-      redirect_to @bookmark, notice: 'Bookmark was successfully created.'
+      flash[:notice] = "Bookmark was successfully created."
+      redirect_to bookmarks_path
     else
       render :new
     end
