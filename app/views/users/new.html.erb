@@ -3,6 +3,8 @@
 
 <%= render partial: "layouts/errors", locals: {object: @user} %>
 
+  <h2>This information can't be changed, please be careful</h2>
+
   <%= form_with url: "/signup", method: :post do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
