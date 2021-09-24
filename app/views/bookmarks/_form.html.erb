@@ -1,4 +1,5 @@
 <%= render partial: 'layouts/errors', locals: {object: @bookmark} %>
+
 <%= form_with model: @bookmark do |f| %>
 
   <div>
@@ -7,7 +8,7 @@
   </div>
   <div>
     <%= f.label :url %>
-    <%= f.text_field :url %>
+    <%= f.url_field :url %>
   </div>
   <div>
     <%= f.submit %>
