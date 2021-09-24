@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to user_path(user)
       else
-        flash[:error] = "There was an error while trying to authenticate you..."
+        flash[:message] = "There was an error while trying to authenticate you..."
         redirect_to root_path
       end
     else
