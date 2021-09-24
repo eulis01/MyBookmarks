@@ -1,0 +1,6 @@
+
+<strong><%= @bookmark.name %></strong> <br>
+<a href="<%= @bookmark.url %>" target="_blank" rel="noopener"> <%= @bookmark.url %>  </a> <br>
+Owner ID: <%=  @bookmark.user_id%> <br>
+
+<%= link_to "Go Back", bookmarks_path, method: :get %>
