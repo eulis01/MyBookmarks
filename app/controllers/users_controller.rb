@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   end
 
   def create
+    #binding.pry
     @user = User.new(user_params)
     set_non_auth_uid
     if @user.save && @user.uid.present?
       session[:user_id] = @user.id
-      flash[:success] = "Thanks for signing up!"
       redirect_to user_path(@user)
     else
       render :new
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def user_params
     # this params hash by itself is not secure enough according to the rails docs. - because it allows for mass assignment.
-    #params.require(:user).permit(:username, :email, :uid, :password, :password_confirmation)
+    #params.require(:user).permit(:username, :email, :uid, :password, :password_confirmation) -- this wasn't working because my params hash was not being nested in the user hash.
 
     # this way is not secure as it allows for mass assignment.
         params.permit(:username, :email, :uid, :password, :password_confirmation)
