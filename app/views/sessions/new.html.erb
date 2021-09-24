@@ -1,8 +1,5 @@
 <div class="login-form">
   <h1>Login</h1>
-
-  <%= flash[:error] %>
-
   <%= form_with url: "/login", method: :post do |f| %>
     <%= f.label :email %>
     <%= f.email_field :email, required:true %> <br>
