@@ -1,17 +1,16 @@
 <div class="navbar">
       <% if logged_in? %>
 
-        <%= link_to 'Profile', current_user %>
-        <%#= link_to 'All Folders', folders_path %>
-        <%#= link_to 'New Folder', new_folder_path %>
-        <%= link_to 'All Bookmarks', bookmarks_path %>
-        <%= link_to 'New Bookmark', new_bookmark_path %>
-        <%= link_to 'All Tags', tags_path %>
-        <%= link_to 'New Tag', new_tag_path %>
-        <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure You Want to Logout?' } %>
+      ||  <%= link_to 'All Bookmarks', bookmarks_path %> ||
+        <%= link_to 'New Bookmark', new_bookmark_path %> ||
+        <%= link_to 'All Tags', tags_path %> ||
+        <%= link_to 'New Tag', new_tag_path %> || <br>
+      ||  <%= link_to 'Profile', current_user %> ||
+        <%= link_to "Go back", :back, method: :get %> ||
+        <%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure You Want to Logout?' } %> ||
       <% else %>
-        <%= link_to 'Home', root_path %>
-        <%= link_to 'Login', login_path %>
-        <%= link_to 'Sign Up', signup_path %>
+      ||  <%= link_to 'Home', root_path %> ||
+        <%= link_to 'Login', login_path %> ||
+        <%= link_to 'Sign Up', signup_path %> ||
       <% end %>
     </div>
