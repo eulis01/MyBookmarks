@@ -3,7 +3,7 @@
 
 <%= render partial: "layouts/errors", locals: {object: @user} %>
 
-  <h2>This information can't be changed, please be careful</h2>
+  <h2>!!! This information can't be changed, please be careful !!!</h2>
 
   <%= form_with url: "/signup", method: :post do |f| %>
     <%= f.label :username %>
@@ -20,4 +20,5 @@
     <br><br>
     <%= f.submit "Sign Up" %>
   <% end %>
+  <%= button_to "Go back", :back, method: :get %>
 </div>
