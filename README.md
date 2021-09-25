@@ -33,4 +33,4 @@ Welcome to My Bookmarks Application! This application is a bookmark manager wher
   All of the Gem code used in this project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Version
-  this project is using rails 6.1.3
+  this project is using rails 6.1.4
