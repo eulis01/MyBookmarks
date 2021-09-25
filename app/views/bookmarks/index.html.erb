@@ -1,5 +1,9 @@
+<% if @user %>
+<h1><%= "#{@user.username}" %> Bookmarks</h1>
+<% else %>
 <h1> All Bookmarks </h1>
-<tr>
+<% end %>
+
   <% @bookmarks.each do |b|%>
       <li>
         <a href="<%= b.url %>" target="_blank" rel="noopener"> <%= b.name %>  </a> --
@@ -8,4 +12,4 @@
         <%= link_to "Delete", bookmark_path(b), method: :delete, data: { confirm: "Are you sure?" } %>
       </li>
   <% end %>
-</tr>
+
