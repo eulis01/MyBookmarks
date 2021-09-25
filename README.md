@@ -1,4 +1,4 @@
-# Bookmarks App
+# Bookmarks Sharing App 
 
 Welcome to My Bookmarks Application! This application is a bookmark manager where users can create an account and add bookmarks the database, tags can be assigned to bookmarks and bookmarks can be filtered by tag.
 
