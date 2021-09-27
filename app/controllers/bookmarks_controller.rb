@@ -7,7 +7,7 @@ class BookmarksController < ApplicationController
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
       @bookmarks = @user.bookmarks.alpha
     else
-      @error = "This user doesn't exist" if params[:user_id]
+      flash[:message] = "This user doesn't exist" if params[:user_id]
       @bookmarks = Bookmark.alpha.includes(:user)
     end
   end
@@ -28,7 +28,7 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = current_user.bookmarks.build(bookmark_params)
     if @bookmark.save
-      flash[:notice] = "Bookmark was successfully created."
+      flash[:message] = "Bookmark was successfully created."
       redirect_to bookmarks_path
     else
       render :new
@@ -36,14 +36,12 @@ class BookmarksController < ApplicationController
   end
   
   def edit
-    redirect_to bookmarks_path if !@bookmark || @bookmark.user != current_user
     @bookmark.build_user if !@bookmark.user
   end
 
   def update
-    redirect_to bookmarks_path if !@bookmark || @bookmark.user != current_user
     if @bookmark.update(bookmark_params)
-      flash[:notice] = "Bookmark was successfully updated."
+      flash[:message] = "Bookmark was successfully updated."
       redirect_to @bookmark
     else
       render :edit
@@ -52,7 +50,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark.destroy
-    flash[:notice] = "Bookmark was successfully deleted."
+    flash[:message] = "Bookmark was successfully deleted."
     redirect_to bookmarks_url
   end
 
