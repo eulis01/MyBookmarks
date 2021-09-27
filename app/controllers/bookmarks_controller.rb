@@ -1,6 +1,8 @@
 class BookmarksController < ApplicationController
   before_action :redirect_if_not_logged_in 
   before_action :set_bookmark, except: [:index, :new, :create]
+  before_action :set_bookmark_owner, only: [:edit, :update, :destroy]
+
   def index
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
       @bookmarks = @user.bookmarks.alpha
