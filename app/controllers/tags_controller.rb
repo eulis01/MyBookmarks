@@ -4,7 +4,12 @@ class TagsController < ApplicationController
   before_action :set_tag_owner, only: [:edit, :update, :destroy]
   
   def index
-    @tags = Tag.all.includes(:bookmarks)
+    if params[:bookmark_id] && @bookmark = Bookmark.find_by_id(params[:bookmark_id])
+    @tags = @bookmark.tags
+    else
+      @error = "That Bookmark doesn't exist" if params[:bookmark_id]
+      @tags = Tag.all
+    end
   end
 
   def show; end
