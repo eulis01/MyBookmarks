@@ -1,3 +1,17 @@
-<h1> All your Tags </h1>
+<% if @bookmark %>
+<h1> Tags for <%= @bookmark.name %> </h1>
+<% else %>
+<h1> All Tags </h1>
+<% end %>
+
+<ul>
+  <% @tags.each do |t| %>
+    <li> <%= t.name %> </li>
+    <li> <%= t.user.username%> </li>
+    <li> About this bookmark: <strong><%= link_to t.bookmark.name, bookmark_path(t.bookmark_id) %></strong> </li>
+  <% end %>
+</ul>
+
+
 
 
