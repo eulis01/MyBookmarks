@@ -7,9 +7,7 @@ class TagsController < ApplicationController
     @tags = Tag.all.includes(:bookmarks)
   end
 
-  def show
-    @tag = Tag.find_by_id(params[:id])
-  end
+  def show; end
 
   def new
   end
