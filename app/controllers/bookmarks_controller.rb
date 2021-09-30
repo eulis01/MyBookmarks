@@ -28,7 +28,6 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = current_user.bookmarks.build(bookmark_params)
     if @bookmark.save
-      flash[:message] = "Bookmark was successfully created."
       redirect_to bookmarks_path
     else
       render :new
@@ -41,7 +40,6 @@ class BookmarksController < ApplicationController
 
   def update
     if @bookmark.update(bookmark_params)
-      flash[:message] = "Bookmark was successfully updated."
       redirect_to @bookmark
     else
       render :edit
@@ -50,7 +48,6 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark.destroy
-    flash[:message] = "Bookmark was successfully deleted."
     redirect_to bookmarks_url
   end
 
