@@ -37,6 +37,11 @@ class TagsController < ApplicationController
   end
 
   def update
+    if @tag.update(tag_params)
+      redirect_to tag_path(@tag)
+    else
+      render :edit
+    end
   end
 
   def destroy
