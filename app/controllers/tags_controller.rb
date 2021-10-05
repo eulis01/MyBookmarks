@@ -45,6 +45,8 @@ class TagsController < ApplicationController
   end
 
   def destroy
+    @tag.destroy
+    redirect_to tags_path
   end
 
   private
