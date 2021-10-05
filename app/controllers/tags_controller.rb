@@ -25,6 +25,12 @@ class TagsController < ApplicationController
   end
 
   def create 
+    @tag = current_user.tags.build(tag_params)
+    if @tag.save
+      redirect_to tags_path
+    else
+      render :new
+    end
   end
 
   def edit
