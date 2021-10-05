@@ -16,6 +16,12 @@ class TagsController < ApplicationController
   end
 
   def new
+    if params[:bookmark_id] && @bookmark = Bookmark.find_by_id(params[:bookmark_id])
+      @tag = @bookmark.tags.build
+    else
+      @error = "That Bookmark doesn't exist" if params[:bookmark_id]
+      @tag = Tag.new
+    end
   end
 
   def create 
