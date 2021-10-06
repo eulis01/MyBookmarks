@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   before_action :redirect_if_not_logged_in
-  before_action :set_tag, only: except: [:index, :new, :create]
+  before_action :set_tag, except: [:index, :new, :create]
   before_action :set_tag_owner, only: [:edit, :update, :destroy]
   
   def index
