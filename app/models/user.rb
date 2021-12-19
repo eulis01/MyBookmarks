@@ -6,8 +6,9 @@ class User < ApplicationRecord
   has_many :tagged_bookmarks, through: :tags, source: :bookmark
 
   with_options presence: true do
-    validates :username, :email, uniqueness: true
+    validates :username, :email, :uid, uniqueness: true
   end
+
 
   def self.find_or_create_from_github_omniauth(auth)
     user = User.find_or_create_by(email: auth[:info][:email]) do |u|
