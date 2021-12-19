@@ -29,7 +29,8 @@ class UsersController < ApplicationController
 
   def user_params
     # Allow certain parameters to be passed in at signup.
-    params.permit(:username, :email, :uid, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    #params.permit(:username, :email, :uid, :password, :password_confirmation)
   end
 
   def set_non_auth_uid
