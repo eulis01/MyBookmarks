@@ -1,11 +1,11 @@
 <div class="home-container"> 
-  <h1> Welcome To Bookmarks </h1>
-  <h2>👆👆If You Do not have an account, Signup or Login👆👆</h2>
-  <h1> This A Bookmarks sharing Application.</h1>
+  <h1> Welcome To The Bookmarks Database </h1>
+  <h1> This A Bookmarks Database where User can share and Find Bookmarks.</h1>
 
   <%= button_to "Login", login_path, method: :get%> <br>
   <%= button_to "Sign Up", signup_path, method: :get %> <br>
 
+  <h2>👆👆If You Do not have an account, Signup or Login👆👆</h2>
   <h2>👇👇Or Signup or Login with your GitHub Account👇👇</h2>
     <%= form_with(url: "/auth/github", method: :post) do %>
       <button type="submit">Login With GitHub</button>
