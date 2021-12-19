@@ -4,7 +4,6 @@ class Tag < ApplicationRecord
 
   with_options presence: true do 
     validates :name, uniqueness: true
-    validates :bookmark_counts, presence: true
   end
   
 end
