@@ -1,4 +1,4 @@
-module SessionsHelper 
+module SessionHelper 
 
   # Logs In  The given user.
   def log_in(user)
