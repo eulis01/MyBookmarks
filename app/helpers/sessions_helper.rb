@@ -1,4 +1,4 @@
-module SessionHelper 
+module SessionsHelper 
 
   # Logs In  The given user.
   def log_in(user)
@@ -36,9 +36,8 @@ module SessionHelper
     @current_user = nil
   end
 
-  # Redirect the user if not Logged In.
+  # Redirect to Root if not logged in.
   def redirect_if_not_logged_in
     redirect_to root_path if !logged_in?
-    end
   end
 end
