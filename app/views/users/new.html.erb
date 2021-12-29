@@ -5,7 +5,7 @@
 
   <h2>!!! This information can't be changed, please be carefull !!!</h2>
 
-  <%= form_with url: "/signup", method: :post do |f| %>
+  <%= form_with(model: @user,  url: "/signup", method: :post) do |f| %>
     <%= f.label :username %>:
     <%= f.text_field :username %>
     <br><br>
