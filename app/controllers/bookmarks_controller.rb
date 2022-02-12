@@ -22,7 +22,7 @@ class BookmarksController < ApplicationController
     else
       @bookmark = Bookmark.new
     end
-    @bookmark.build_tag
+    @bookmark.build_user
   end
 
   def create

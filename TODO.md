@@ -2,11 +2,10 @@
 
   ## Models
 
-  ### Bookmark - Join table joining the folders and users.
+  ### Bookmark - Join table joining the tags and users.
     - belongs_to :user
     - has_many :tags
     - has_many :users, through: :tags
-    - belongs_to :folder
     - name 
     - url
 

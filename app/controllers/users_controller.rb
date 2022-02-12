@@ -9,7 +9,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     set_non_auth_uid
     if @user.save && @user.uid.present?
-      session[:user_id] = @user.id
+      log_in(@user)
+      #session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render :new
@@ -27,13 +28,13 @@ class UsersController < ApplicationController
 
   private 
 
-  def user_params
-    # Allow certain parameters to be passed in at signup.
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
-    #params.permit(:username, :email, :uid, :password, :password_confirmation)
-  end
+    def user_params
+      # Allow certain parameters to be passed in at signup.
+      params.require(:user).permit(:username, :email, :password, :password_confirmation)
+      #params.permit(:username, :email, :uid, :password, :password_confirmation)
+    end
 
-  def set_non_auth_uid
-    @user.uid = SecureRandom.hex(10)
-  end
+    def set_non_auth_uid
+      @user.uid = SecureRandom.hex(10)
+    end
 end
