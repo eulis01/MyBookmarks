@@ -6,8 +6,8 @@
 
 <ul>
   <% @tags.each do |t| %>
-    <li> <%= t.name %> </li>
-    <li> <%= t.user.username%> </li>
+    <li> Tag Name: <%= t.name %> </li>
+    <li> Tag Creator: <%= t.user.username%> </li>
     <li> About this bookmark: <strong><%= link_to t.bookmark.name, bookmark_path(t.bookmark_id) %></strong> </li>
   <% end %>
 </ul>
