@@ -1,9 +1,19 @@
 
 
-<%= form_with(model: [@tag.bookmark,@tag]) do |f| %>
+<%= form_with(model: [@tag.bookmark, @tag]) do |f| %>
+
+  <% if !@tag.bookmark %>
+  <br>
+    <%= f.label :bookmark_id, "Bookmark" %>
+    <%= f.collection_select :bookmark_id, Bookmark.all, :id, :name %><br>
+  <% else %>
+    <%= f.hidden_field :bookmark_id %>
+  <% end %>
+  <br>
+  <br>
 
   <%= f.label :name %>
-  <%= f.text_field :name %>
-
+  <%= f.text_field :name %><br>
+  <br>
   <%= f.submit %>
 <% end %>
