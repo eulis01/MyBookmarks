@@ -1,2 +1,6 @@
-
-<%= render partial: "form" %>
+<h1> Edit Tag </h1>
+<%= form_with model: @tag, method: :patch do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+  <% end %>
