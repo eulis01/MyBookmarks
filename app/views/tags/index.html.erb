@@ -4,13 +4,16 @@
 <h1> All Tags </h1>
 <% end %>
 
-<ul>
   <% @tags.each do |t| %>
-    <li> <%= t.name %> </li>
-    <li> <%= t.user.username%> </li>
-    <li> About this bookmark: <strong><%= link_to t.bookmark.name, bookmark_path(t.bookmark_id) %></strong> </li>
+  <ul>
+      Tag Name: <%= t.name %> <br>
+      Tag Creator: <%= t.user.username%> <br>
+      Bookmark Tagged: <strong><%= link_to t.bookmark.name, bookmark_path(t.bookmark_id) %></strong> <br>
+      <%= link_to 'Delete', tag_path(t), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Edit', edit_tag_path(t), method: :get %>
+      <br>
+  </ul>
   <% end %>
-</ul>
 
 
 
