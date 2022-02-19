@@ -56,13 +56,4 @@ class BookmarksController < ApplicationController
     def bookmark_params
       params.require(:bookmark).permit(:name, :url, :tag_id)
     end
-    
-    def set_bookmark 
-      @bookmark = Bookmark.find_by(id: params[:id])
-    end
-
-    def set_bookmark_owner
-      set_bookmark
-      redirect_to bookmarks_path if !@bookmark || @bookmark.user != current_user 
-    end
 end
