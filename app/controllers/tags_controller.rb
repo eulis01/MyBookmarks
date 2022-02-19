@@ -55,7 +55,4 @@ class TagsController < ApplicationController
     def tag_params
       params.require(:tag).permit(:name, :bookmark_id)
     end
-
-  
-
 end
