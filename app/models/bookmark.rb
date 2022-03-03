@@ -2,6 +2,7 @@ class Bookmark < ApplicationRecord
   belongs_to :user
   has_many :tags
   has_many :users, through: :tags
+  accepts_nested_attributes_for :tags
 
     scope :alpha, -> { order(:name)}
 
