@@ -3,7 +3,9 @@ class User < ApplicationRecord
   has_secure_password 
   has_many :bookmarks
   has_many :tags
-  has_many :tagged_bookmarks, through: :tags, source: :bookmark
+  #has_many :tagged_bookmarks, through: :tags, source: :bookmark
+  has_many :bookmarks_with_tags, through: :tags, source: :bookmark
+  accepts_nested_attributes_for :bookmarks, :tags, reject_if: :all_blank, allow_destroy: true
 
   with_options presence: true do
     validates :username, :email, :uid, uniqueness: true
