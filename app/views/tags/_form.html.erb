@@ -3,7 +3,7 @@
 <%= form_with(model: [@tag.bookmark, @tag]) do |f| %>
 
   <% if !@tag.bookmark %>
-    <%= f.label :bookmark_id, "Bookmark:" %>
+    <%= f.label :bookmark_id, 'Bookmark:' %>
     <%= f.collection_select :bookmark_id, Bookmark.order(:name), :id, :name %>
   <% else %>
     <%= f.hidden_field :bookmark_id %>
