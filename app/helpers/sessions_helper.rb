@@ -7,7 +7,7 @@ module SessionsHelper
 
   # Returns the current logged-in user (if any).
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+    @user ||= User.find_by(id: session[:user_id])
   end
 
   # Returns true if the user is logged in, false otherwise.
@@ -18,7 +18,7 @@ module SessionsHelper
   # Log Out the current user.
   def log_out
     session.delete(:user_id)
-    @current_user = nil
+    current_user = nil
   end
 
   # Redirect to Root if not logged in.
