@@ -2,7 +2,14 @@ class Bookmark < ApplicationRecord
   belongs_to :user
   has_many :tags
   has_many :users, through: :tags
-  accepts_nested_attributes_for :tags
+  #accepts_nested_attributes_for :tags
+
+  def tags_attributes=(tags_attributes)
+    tags_attributes.values.each do |tag_attribute|
+      tag = Tag.find_or_create_by(tag_attribute)
+      self.tags << tag
+    end
+  end
 
     scope :alpha, -> { order(:name)}
 
