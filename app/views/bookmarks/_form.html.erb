@@ -1,11 +1,16 @@
 <%= render partial: 'layouts/errors', locals: {object: @bookmark} %>
 
 <%= form_with model: @bookmark do |f| %>
-    <%= f.label :select_tag, 'Select A Tag:' %>
-    <%= f.collection_select :tag_id, Tag.all, :id, :name %><br><br>
-    <%= f.label :name, 'Name:' %>
-    <%= f.text_field :name %><br><br>
-    <%= f.label :url, 'URL:' %>
-    <%= f.url_field :url %><br><br>
+      <%= f.label :name, 'NAME:' %>
+      <%= f.text_field :name %> <br><br>
+      <%= f.label :url, 'URL:' %>
+      <%= f.url_field :url %><br><br>
+
+            <%= f.fields_for :tags do |ff| %>
+                  <%= ff.label :select_tag, 'Select A Tag:' %>
+                  <%= ff.collection_select :name, Tag.all, :id, :name, include_blank: true %><br><br>
+                  <%= ff.label :name, 'New Tag Name:' %>
+                  <%= ff.text_field :name %><br><br>%>
+                <% end %>
     <%= f.submit %>
-  <% end %>
+<% end %>
