@@ -4,7 +4,7 @@ class BookmarksController < ApplicationController
   before_action :set_bookmark_owner, only: [:edit, :update, :destroy]
 
   def index
-    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+    if params[:user_id] && current_user.id == params[:user_id].to_i
       @bookmarks = @user.bookmarks.alpha
     else
       flash[:message] = "This user doesn't exist" if params[:user_id]
@@ -17,11 +17,12 @@ class BookmarksController < ApplicationController
   end
 
   def new
-    if params[:user_id] && @user = User.find_by_id(params[:user_id])
-      @bookmark = @user.bookmarks.build
-    else
-      @bookmark = Bookmark.new
-    end
+      if params[:user_id] && current_user.id == params[:user_id].to_i
+        @bookmark = current_user.bookmarks.build
+      else
+        @bookmark = Bookmark.new
+      end
+      @bookmark.tags.build
     @bookmark.build_user
   end
 
@@ -54,6 +55,6 @@ class BookmarksController < ApplicationController
   private
 
     def bookmark_params
-      params.require(:bookmark).permit(:name, :url, :tag_id)
+      params.require(:bookmark).permit(:name, :url, :user_id, tags_attributes: [:id, :name, :bookmark_id, :bookmark_counts, :user_id])
     end
 end
