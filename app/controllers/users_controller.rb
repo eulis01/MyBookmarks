@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
     def user_params
       # Allow certain parameters to be passed in at signup.
-      params.require(:user).permit(:username, :email, :password, :password_confirmation, :uid)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :uid, tags_attributes: [:*])
       #params.permit(:username, :email, :uid, :password, :password_confirmation)
     end
 
