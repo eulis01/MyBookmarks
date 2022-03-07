@@ -16,12 +16,16 @@ class TagsController < ApplicationController
   end
 
   def new
-    if params[:bookmark_id] && @bookmark = Bookmark.find_by_id(params[:bookmark_id])
-      @tag = @bookmark.tags.build
-    else
-      @error = "That Bookmark doesn't exist" if params[:bookmark_id]
-      @tag = Tag.new
-    end
+      @tag = current_user.tags.build
+      @tag.build_bookmark if !@tag.bookmark
+      @tag.build_user if !@tag.user
+
+      #if params[:bookmark_id] && @bookmark = Bookmark.find_by_id(params[:bookmark_id])
+      #  @tag = @bookmark.tags.build
+      #else
+      #  @error = "That Bookmark doesn't exist" if params[:bookmark_id]
+      #  @tag = Tag.new
+      #end
   end
 
   def create 
@@ -53,6 +57,6 @@ class TagsController < ApplicationController
   private
 
     def tag_params
-      params.require(:tag).permit(:name, :bookmark_id)
+      params.require(:tag).permit(:name, :bookmark_id, :bookmark_counts, :user_id)
     end
 end
