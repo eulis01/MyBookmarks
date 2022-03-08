@@ -9,9 +9,10 @@
       Tag Name: <%= t.name %> <br>
       Tag Creator: <%= t.user.username%> <br>
       Bookmark Tagged: <strong><%= link_to t.bookmark.name, bookmark_path(t.bookmark_id) %></strong> <br>
-      <%= link_to 'Delete', tag_path(t), method: :delete, data: { confirm: 'Are you sure?' } %>
+      Bookmark counts: <%= t.bookmark_counts %> <br>
+      <%= link_to 'View', tag_path(t.id) %>
       <%= link_to 'Edit', edit_tag_path(t), method: :get %>
-      <br>
+      <%= link_to 'Delete', tag_path(t), method: :delete, data: { confirm: 'Are you sure?' } %> <br>
   </ul>
   <% end %>
 
