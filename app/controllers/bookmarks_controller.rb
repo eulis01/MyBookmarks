@@ -5,7 +5,7 @@ class BookmarksController < ApplicationController
 
   def index
     if params[:user_id] && current_user.id == params[:user_id].to_i
-      @bookmarks = @user.bookmarks.alpha
+      @bookmarks = current_user.bookmarks.alpha
     else
       flash[:message] = "This user doesn't exist" if params[:user_id]
       @bookmarks = Bookmark.alpha.includes(:user)
