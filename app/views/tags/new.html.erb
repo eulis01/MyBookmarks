@@ -1,8 +1,1 @@
-<% if @tag.bookmark %>
-<h1>New Tag for <%= @tag.bookmark.name %>!</h1><br>
-<% else %>
-<h1>New Tag!</h1>
-<% end %>
-
-<%= render partial: "layouts/errors", locals: {object: @tag} %><br>
-<%= render partial: "form" %>
+<%= render partial: 'form'  %>
