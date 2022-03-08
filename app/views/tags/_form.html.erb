@@ -6,7 +6,7 @@
         <%= f.label :Select_Bookmark %>
         <%= f.collection_select :bookmark_id, Bookmark.order(:name), :id, :name %><br><br>
 
-        <%= f.label :tag, 'New Tag Name:' %>
+        <%= f.label :name, 'New Tag Name:' %>
         <%= f.text_field :name %><br><br>
         <%= f.submit %>
 <% end %>
