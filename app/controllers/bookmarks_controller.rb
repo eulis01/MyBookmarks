@@ -17,13 +17,9 @@ class BookmarksController < ApplicationController
   end
 
   def new
-      if params[:user_id] && current_user.id == params[:user_id].to_i
         @bookmark = current_user.bookmarks.build
-      else
-        @bookmark = Bookmark.new
-      end
-      @bookmark.tags.build
-    @bookmark.build_user
+        @bookmark.tags.build
+        @bookmark.build_user if !@bookmark.user
   end
 
   def create
