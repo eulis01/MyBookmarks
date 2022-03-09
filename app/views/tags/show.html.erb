@@ -1,4 +1,4 @@
-<h1> <%= current_user.username %> Tags </h1>
+<h1> <%= current_user.username.upcase %> Tags </h1>
 <h2>Tag Name: <%= @tag.name %> </h2>
 <h2>Tag Owner: <%= @tag.user_id %> </h2>
 <h2> Tag Bookmark Count: <%= @tag.bookmark_counts %> </h2>
