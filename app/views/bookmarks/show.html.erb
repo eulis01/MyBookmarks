@@ -1,8 +1,11 @@
 <h1> Viewing Bookmark # <%= @bookmark.id%></h1>
 Name: <%= @bookmark.name %><br>
 Bookmark URL: <a href="<%= @bookmark.url %>" target="_blank" rel="noopener"> <%= @bookmark.url %>  </a> <br>
-Owner ID: <%=  @bookmark.user_id%> <br>
+Owner ID: <%= @bookmark.user_id%> <br>
 Created At: <%= @bookmark.created_at %> <br>
 Updated At: <%= @bookmark.updated_at %> <br>
-<%= link_to 'Edit', edit_bookmark_path(@bookmark.id), method: :get %>
-<%= link_to "Delete", bookmark_path(@bookmark.id), method: :delete, data: { confirm: "Are you sure?" } %>
+Tags: <%= @bookmark.tags.map {|tag| tag.name}.join(", ") %> <br>
+    <% if @bookmark.user == current_user %>
+        <%= link_to 'Edit', edit_bookmark_path(@bookmark.id), method: :get %>
+        <%= link_to "Delete", bookmark_path(@bookmark.id), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
