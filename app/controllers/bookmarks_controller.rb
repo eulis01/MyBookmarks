@@ -17,13 +17,18 @@ class BookmarksController < ApplicationController
   end
 
   def new
+    @tag_select = Tag.all.map { |t| [t.name, t.id, t.user_id] }
+    if params[:user_id] && current_user.id == params[:user_id].to_i
         @bookmark = current_user.bookmarks.build
-        @bookmark.tags.build
-        @bookmark.build_user if !@bookmark.user
+    else
+      @bookmark = Bookmark.new
+    end
+    @bookmark.tags.build
   end
 
   def create
     @bookmark = current_user.bookmarks.build(bookmark_params)
+    #byebug
     if @bookmark.save
       redirect_to bookmarks_path
     else
