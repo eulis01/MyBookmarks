@@ -15,12 +15,13 @@ Rails.application.routes.draw do
 
   # Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. Tag.bookmark_counts URL: /tags/bookmark_counts)
 
+
   # Include Nested resources ( show or Index ) and ( new ): Make sure These routes forms can display validations errors.  
   
   resources :bookmarks do
     resource :tags, only: [:index, :new]
   end
-
+  
   resources :tags
   resources :users, only: [:show] do 
     resources :bookmarks, only: [:index]
