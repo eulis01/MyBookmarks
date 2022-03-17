@@ -1,1 +1,6 @@
-<%= render partial: 'form'  %>
+<% if @tag.bookmark_id %>
+        <h1> <%= "#{@tag.bookmark.name}".upcase %> Tags </h1>
+<% else %>
+        <h1>New Tag!</h1>
+<% end %>
+    <%= render partial: "form"  %>
