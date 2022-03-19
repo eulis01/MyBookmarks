@@ -8,8 +8,10 @@
     <% @user.bookmarks.each do |b| %>
         <ul>
             <a href="<%= b.url %>" target="_blank" rel="noopener"> <%= b.name %>  </a> --
-            <%= link_to "Show", bookmark_path(b) %> --
-            <%= link_to "Edit", edit_bookmark_path(b) %> --
-            <%= link_to "Delete", bookmark_path(b), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= link_to "Show", bookmark_path(b) %>
+            <% if b.user == current_user %> --
+                    <%= link_to "Edit", edit_bookmark_path(b) %> --
+                    <%= link_to "Delete", bookmark_path(b), method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>
         </ul>
     <% end %>
