@@ -3,6 +3,7 @@
 <h2>Your User ID is: <%= @user.id %></h2>
 
 <%= button_to "Go To #{@user.username} Bookmarks", user_bookmarks_path(@user), method: :get %>
+
 <h3>👇<%= "#{@user.username}".upcase %> Bookmarks👇</h3>
 
     <% @user.bookmarks.each do |b| %>
