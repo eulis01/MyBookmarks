@@ -1,11 +1,12 @@
 <%= render partial: 'layouts/errors', locals: {object: @tag} %>
 
-    <h1>New Tag</h1>
-<%= form_with(model: @tag) do |f| %>
-        <%= f.hidden_field :bookmark_id %>
-        <%= f.label :Select_Bookmark %>
-        <%= f.collection_select :bookmark_id, Bookmark.order(:name), :id, :name %><br><br>
-
+<%= form_for @tag do |f| %>
+        <% if !@tag.bookmark_id %>
+                <%= f.label :Select_Bookmark %>
+                <%= f.collection_select :bookmark_id, Bookmark.all, :id, :name %><br><br>
+        <% else %>
+                <%= f.hidden_field :bookmark_id %>
+        <% end %>
         <%= f.label :name, 'New Tag Name:' %>
         <%= f.text_field :name %><br><br>
         <%= f.submit %>
