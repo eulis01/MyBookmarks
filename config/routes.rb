@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # Include Nested resources ( show or Index ) and ( new ): Make sure These routes forms can display validations errors.  
   
   resources :bookmarks do
-    resource :tags, only: [:index, :new]
+    resource :tags, only: [:new]
   end
   
   resources :tags
