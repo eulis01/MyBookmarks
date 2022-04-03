@@ -2,10 +2,11 @@
   <h1>Login</h1>
   <%= form_with url: "/login", method: :post do |f| %>
     <%= f.label :email %>:
-    <%= f.email_field :email, required:true %> <br>
+    <%= f.email_field :email, required:true %> <br> <br>
     <%= f.label :password %>:
-    <%= f.password_field :password, required:true %> <br>
+    <%= f.password_field :password, required:true %> <br> <br>
     <%= f.submit "Login" %>
   <% end %>
+  <br>
   <%= button_to "Go back", :back, method: :get %>
 </div>
