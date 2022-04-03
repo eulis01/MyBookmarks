@@ -1,44 +1,58 @@
 // this is the main stylesheet for the application it will be compiled to application.css
 
-body {
-  text-align: center;
-  background-color: #ffffff
-}
+// global styles for the application
+    * {
+      font-family: 'Menlolgs','sans-serif';
+    }
+
+// body styles
+    body {
+      text-align: center;
+      background-color: #ffffff
+    }
 
 // navigation bar styles
-.navbar {
-  font-size: 1.2rem;
-  font-family: 'Arial';
-  border-bottom: 2px solid #706f6f;
-  border-radius: 0;
-  box-shadow: none;
-  margin-bottom: 0;
-  padding: 0;
-  text-align: center; /* center the navbar */
-}
+    .navbar {
+      font-size: 1.2rem;
+      border: .5rem solid #706f6f;
+      border-radius: .5rem;
+      box-shadow: none;
+      margin-bottom: 0;
+      padding: 0;
+      text-align: center; /* center the navbar */
+      background-color: inherit;
+    }
 
 // home page styles
-.home-container {
-
-  .h1 {
-  font-size: 2.5em;
-  font-weight: 300;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-}
+    .home-container {
+      .h1 {
+      font-size: 2.5em;
+      font-weight: 300;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    }
 
 
 // error message styles
-.error-message {
-  color: #ff1900;
-  font-size: 0.8em;
-  margin-top: 0.5em;
-} 
+    .error-message {
+      color: #ff1900;
+      font-size: 0.8em;
+      margin-top: 0.5em;
+    } 
 
-.signup-form {
-  h4 {
-    color: #b76f1c;
-    font-size: 1rem;
-  }
-}
+// signup page styles
+    .signup-form {
+      h4 {
+        color: #ff0000;
+        font-size: 1.5rem;
+      }
+    }
+
+// login page styles
+    .login-form {
+      h1 {
+        color: #000000;
+        font-size: 4rem;
+      }
+    }
